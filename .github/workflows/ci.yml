@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [zh-CN, en, ja]
+        language: [zh-CN, zh-Hant, en, ja]
     env:
       PUBLIC_SITE_LANGUAGE: ${{ matrix.language }}
     runs-on: ubuntu-latest
