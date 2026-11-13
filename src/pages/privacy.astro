@@ -1,0 +1,28 @@
+---
+import { t } from "../i18n";
+import BlogLayout from "../layouts/BlogLayout.astro";
+---
+
+<BlogLayout
+  title={t("privacy.title")}
+  heroTitle={t("privacy.title")}
+  heroSubtitle={t("privacy.updated")}
+>
+  <section class="card page-card">
+    <div class="prose">
+      <p>{t("privacy.intro")}</p>
+      <h2>{t("privacy.collectTitle")}</h2>
+      <p>{t("privacy.collectBody")}</p>
+      <h2>{t("privacy.cookiesTitle")}</h2>
+      <p>{t("privacy.cookiesBody")}</p>
+      <h2>{t("privacy.thirdPartyTitle")}</h2>
+      <p>{t("privacy.thirdPartyBody")}</p>
+      <h2>{t("privacy.rightsTitle")}</h2>
+      <p>{t("privacy.rightsBody")}</p>
+      <h2>{t("privacy.contactTitle")}</h2>
+      <p>{t("privacy.contactBody")}</p>
+      <h2>{t("privacy.changesTitle")}</h2>
+      <p>{t("privacy.changesBody")}</p>
+    </div>
+  </section>
+</BlogLayout>

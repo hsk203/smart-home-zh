@@ -6,6 +6,7 @@ lang: zh-CN
 category: desk-setup
 tags: ["桌面改造", "理线", "升降桌"]
 cover: tool
+coverImage: "/images/standing-desk-cable-management/homepage.webp"
 featured: false
 draft: false
 updatedDate: 2026-11-13

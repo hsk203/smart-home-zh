@@ -1,5 +1,12 @@
 import settings from "./site.config.json" with { type: "json" };
-import { language, locale, ogLocale, t, type TranslationKey } from "./i18n";
+import {
+  language,
+  locale,
+  ogLocale,
+  t,
+  type Language,
+  type TranslationKey,
+} from "./i18n";
 
 // Configure language and identity in site.config.json; edit copy in i18n/*.json.
 export const siteInfo = {
@@ -14,6 +21,22 @@ export const siteInfo = {
   // SITE comes from astro.config.mjs and is shared by all generated metadata.
   url: import.meta.env.SITE,
 };
+
+// Alternate-language site (Simplified <-> Traditional Chinese). Configure in
+// site.config.json as { "zh-CN": "<zh-CN origin>", "zh-Hant": "<zh-Hant origin>" }.
+// Single-language sites omit it and get no alternate links or language switch.
+const alternateSiteConfig = (
+  settings as { alternateSite?: Partial<Record<Language, string>> }
+).alternateSite;
+const alternateSiteUrl =
+  alternateSiteConfig?.[language === "zh-CN" ? "zh-Hant" : "zh-CN"];
+export const alternateSite =
+  alternateSiteUrl && (language === "zh-CN" || language === "zh-Hant")
+    ? {
+        url: alternateSiteUrl,
+        lang: (language === "zh-CN" ? "zh-Hant" : "zh-CN") as Language,
+      }
+    : null;
 
 export const headerConfig = {
   title: settings.site.logoText,

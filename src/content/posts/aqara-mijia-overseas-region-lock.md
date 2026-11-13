@@ -6,6 +6,7 @@ lang: zh-CN
 category: cross-region
 tags: ["Aqara", "米家", "锁区", "网关", "跨区"]
 cover: tool
+coverImage: "/images/aqara-mijia-overseas-region-lock/homepage.webp"
 featured: false
 draft: false
 updatedDate: 2026-11-13

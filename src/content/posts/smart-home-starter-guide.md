@@ -6,6 +6,7 @@ lang: zh-CN
 category: getting-started
 tags: ["智能家居", "米家", "Aqara", "入门"]
 cover: tool
+coverImage: "/images/smart-home-starter-guide/homepage.webp"
 featured: false
 draft: false
 updatedDate: 2026-11-13

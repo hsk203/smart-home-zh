@@ -6,6 +6,7 @@ lang: zh-CN
 category: cross-region
 tags: ["Home Assistant", "HomeKit", "米家", "Aqara", "跨区"]
 cover: tool
+coverImage: "/images/home-assistant-guide/homepage.webp"
 featured: false
 draft: false
 updatedDate: 2026-11-13

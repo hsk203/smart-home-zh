@@ -6,6 +6,7 @@ lang: zh-CN
 category: standing-desks
 tags: ["电动升降桌", "小户型", "站立办公"]
 cover: tool
+coverImage: "/images/standing-desk-small-space/homepage.webp"
 featured: false
 draft: false
 updatedDate: 2026-11-13

@@ -13,6 +13,10 @@
   "hero": {
     "image": "/images/hero.webp"
   },
+  "alternateSite": {
+    "zh-CN": "https://smart-home-zh.517519203.workers.dev",
+    "zh-Hant": "https://smart-home-zh-hant.517519203.workers.dev"
+  },
   "language": "zh-CN",
   "navigation": [
     {

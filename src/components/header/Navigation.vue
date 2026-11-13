@@ -3,7 +3,10 @@ import { t } from "../../i18n";
 import { ref, onMounted, onUnmounted } from "vue";
 import { headerConfig } from "../../config";
 import { initTheme, toggleTheme } from "../../scripts/theme";
-const props = defineProps<{ pathname: string }>();
+const props = defineProps<{
+  pathname: string;
+  alternate?: { url: string; label: string };
+}>();
 const isDark = ref(false);
 const isAtTop = ref(true);
 const menuOpen = ref(false);
@@ -64,6 +67,9 @@ onUnmounted(() => {
         </a>
       </nav>
       <div class="nav-actions">
+        <a v-if="alternate" :href="alternate.url" class="lang-switch">{{
+          alternate.label
+        }}</a>
         <button
           @click="openSearch"
           :aria-label="t('nav.search')"
@@ -180,6 +186,21 @@ nav a.active::after {
 .nav-actions button:hover {
   background: #ffffff25;
   transform: rotate(-8deg);
+}
+.lang-switch {
+  display: grid;
+  place-items: center;
+  height: 35px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  font-size: 12px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.lang-switch:hover {
+  background: #ffffff25;
 }
 .nav-header.scrolled,
 .nav-header.menu-open {

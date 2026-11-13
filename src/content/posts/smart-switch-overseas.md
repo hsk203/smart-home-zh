@@ -6,6 +6,7 @@ lang: zh-CN
 category: cross-region
 tags: ["智能开关", "单火线", "零火线", "110V", "跨区"]
 cover: tool
+coverImage: "/images/smart-switch-overseas/homepage.webp"
 featured: false
 draft: false
 updatedDate: 2026-11-13

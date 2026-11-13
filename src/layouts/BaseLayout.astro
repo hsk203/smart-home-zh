@@ -1,6 +1,11 @@
 ---
 import { t } from "../i18n";
-import { siteInfo, personalInfo, welcomeConfig } from "../config";
+import {
+  siteInfo,
+  personalInfo,
+  welcomeConfig,
+  alternateSite,
+} from "../config";
 import "../styles/global.css";
 import "@fontsource-variable/noto-sans";
 import "@fontsource-variable/noto-sans-jp";
@@ -14,6 +19,7 @@ import { getPosts, summarize } from "../lib/posts";
 interface Props {
   title?: string;
   description?: string;
+  ogImage?: string;
   heroTitle?: string;
   heroSubtitle?: string;
   home?: boolean;
@@ -24,6 +30,7 @@ interface Props {
 const {
   title,
   description = siteInfo.description,
+  ogImage,
   heroTitle,
   heroSubtitle,
   home = false,
@@ -36,6 +43,17 @@ const pageTitle = title
   ? `${title} · ${siteInfo.title}`
   : `${siteInfo.title} · ${siteInfo.titleSuffix}`;
 const canonical = new URL(Astro.url.pathname, siteInfo.url);
+const alternateLink = alternateSite
+  ? {
+      lang: alternateSite.lang,
+      href: new URL(Astro.url.pathname, alternateSite.url),
+    }
+  : null;
+const defaultUrl =
+  siteInfo.language === "zh-Hant" && alternateLink
+    ? alternateLink.href
+    : canonical;
+const ogImageUrl = new URL(ogImage ?? welcomeConfig.bgImage, siteInfo.url);
 ---
 
 <!doctype html>
@@ -56,21 +74,26 @@ const canonical = new URL(Astro.url.pathname, siteInfo.url);
     <meta property="og:locale" content={siteInfo.locale} />
     <meta property="og:type" content={article ? "article" : "website"} />
     <meta property="og:url" content={canonical} />
-    <meta
-      property="og:image"
-      content={new URL(welcomeConfig.bgImage, siteInfo.url)}
-    />
+    <meta property="og:image" content={ogImageUrl} />
     {article && publishedTime && (
       <meta property="article:published_time" content={publishedTime} />
     )}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
-    <meta
-      name="twitter:image"
-      content={new URL(welcomeConfig.bgImage, siteInfo.url)}
-    />
+    <meta name="twitter:image" content={ogImageUrl} />
     <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang={siteInfo.language} href={canonical} />
+    {alternateLink && (
+      <>
+        <link
+          rel="alternate"
+          hreflang={alternateLink.lang}
+          href={alternateLink.href}
+        />
+        <link rel="alternate" hreflang="x-default" href={defaultUrl} />
+      </>
+    )}
     <link
       rel="alternate"
       type="application/rss+xml"
@@ -98,7 +121,15 @@ const canonical = new URL(Astro.url.pathname, siteInfo.url);
     <a class="skip-link" href="#main-content">
       {t("common.skip")}
     </a>
-    <Navigation pathname={Astro.url.pathname} client:load />
+    <Navigation
+      pathname={Astro.url.pathname}
+      alternate={
+        alternateLink
+          ? { url: alternateLink.href.href, label: t("nav.languageSwitch") }
+          : undefined
+      }
+      client:load
+    />
     <Search posts={posts} client:load />
     <Welcome
       compact={!home}
@@ -131,7 +162,8 @@ const canonical = new URL(Astro.url.pathname, siteInfo.url);
           Kanade
         </a>{" "}
         · <a href="/rss.xml">{t("common.rss")}</a> ·{" "}
-        <a href="/about/">{t("common.aboutSite")}</a>
+        <a href="/about/">{t("common.aboutSite")}</a> ·{" "}
+        <a href="/privacy/">{t("common.privacy")}</a>
       </p>
     </footer>
     <button

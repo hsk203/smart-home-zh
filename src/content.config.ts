@@ -21,6 +21,9 @@ const posts = defineCollection({
     ),
     tags: z.array(z.string().trim().min(1)),
     cover: z.enum(coverNames),
+    // Optional real screenshot used as the card/article cover.
+    // When set, it replaces the decorative generic cover.
+    coverImage: z.string().trim().optional(),
     featured: z.boolean().default(false),
     draft: z.boolean().default(false),
   }),

@@ -6,6 +6,7 @@ lang: zh-CN
 category: desk-setup
 tags: ["桌面改造", "收纳", "小户型"]
 cover: tool
+coverImage: "/images/small-desk-makeover/homepage.webp"
 featured: false
 draft: false
 updatedDate: 2026-11-13

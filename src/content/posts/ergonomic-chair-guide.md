@@ -6,6 +6,7 @@ lang: zh-CN
 category: ergonomic-chairs
 tags: ["人体工学椅", "久坐", "腰托"]
 cover: tool
+coverImage: "/images/ergonomic-chair-guide/homepage.webp"
 featured: false
 draft: false
 updatedDate: 2026-11-13

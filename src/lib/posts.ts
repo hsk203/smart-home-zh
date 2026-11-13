@@ -10,6 +10,7 @@ export type PostSummary = {
   category: string;
   tags: string[];
   cover: string;
+  coverImage?: string;
   featured: boolean;
   minutes: number;
 };
