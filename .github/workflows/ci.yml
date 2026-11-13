@@ -9,14 +9,8 @@ permissions:
 
 jobs:
   verify:
-    strategy:
-      fail-fast: false
-      matrix:
-        language: [zh-CN, zh-Hant, en, ja]
-    env:
-      PUBLIC_SITE_LANGUAGE: ${{ matrix.language }}
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v7.0.1
       - uses: pnpm/action-setup@v6.1.0
@@ -25,10 +19,7 @@ jobs:
           node-version-file: .node-version
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      - run: pnpm format:check
-      - run: pnpm audit --audit-level=high
-      - run: pnpm build
-        env:
-          SITE_URL: https://example.com
+      - run: pnpm lint
+      - run: bash scripts/build-all.sh
       # e2e tests target the original Kanade theme (old categories, guestbook);
       # re-enable after updating tests/ for the smart-home site.

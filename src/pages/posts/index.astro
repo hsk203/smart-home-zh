@@ -1,17 +1,30 @@
 ---
-import { t } from "../../i18n";
-import BlogLayout from "../../layouts/BlogLayout.astro";
-import PostFeed from "../../components/posts/PostFeed.vue";
-import PostListFallback from "../../components/posts/PostListFallback.astro";
-import { getPosts, summarize } from "../../lib/posts";
-const posts = (await getPosts()).map(summarize);
+import HomeSider from '@components/layout/HomeSider.astro';
+import PostList from '@components/post/PostList.astro';
+import Cover from '@components/ui/cover/Cover.astro';
+import { CONTENT_PADDING } from '@constants/layout';
+import { seoConfig } from '@constants/site-config';
+import Layout from '@layouts/Layout.astro';
+import TwoColumnLayout from '@layouts/TwoColumnLayout.astro';
+import { getNonFeaturedPosts } from '@lib/content';
+import { toPostCardDataList } from '@lib/content/transforms';
+import Divider from '@/components/ui/divider';
+import { defaultLocale, t } from '@/i18n';
+
+const locale = defaultLocale;
+const posts = await getNonFeaturedPosts(locale);
+const postCardData = toPostCardDataList(posts, locale);
 ---
 
-<BlogLayout
-  title={t("nav.posts")}
-  heroTitle={t("post.heroTitle")}
-  heroSubtitle={t("post.heroSubtitle")}
->
-  <PostFeed posts={posts} archive client:load />
-  <PostListFallback posts={posts} />
-</BlogLayout>
+<Layout locale={locale} title={seoConfig.title}>
+  <TwoColumnLayout>
+    <Cover slot="cover" />
+    <HomeSider slot="sider" />
+    <div
+      class={`shadow-box bg-gradient-start tablet:shadow-none flex flex-col gap-4 overflow-clip ${CONTENT_PADDING.standard}`}
+    >
+      <Divider>{t(locale, 'post.postList')}</Divider>
+      <PostList posts={postCardData} showPaginator={false} />
+    </div>
+  </TwoColumnLayout>
+</Layout>

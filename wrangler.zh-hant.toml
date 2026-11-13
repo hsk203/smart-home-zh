@@ -1,5 +1,10 @@
 name = "smart-home-zh-hant"
 compatibility_date = "2026-11-13"
+workers_dev = true
+
+routes = [
+  { pattern = "smarthome-hant.aitech8.com", custom_domain = true },
+]
 
 [assets]
 directory = "./dist-zh-hant"

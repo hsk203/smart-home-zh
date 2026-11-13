@@ -1,28 +1,35 @@
 ---
-import { t } from "../i18n";
-import BlogLayout from "../layouts/BlogLayout.astro";
+import HomeSider from '@components/layout/HomeSider.astro';
+import Cover from '@components/ui/cover/Cover.astro';
+import { CONTENT_PADDING } from '@constants/layout';
+import { seoConfig } from '@constants/site-config';
+import Layout from '@layouts/Layout.astro';
+import TwoColumnLayout from '@layouts/TwoColumnLayout.astro';
 ---
 
-<BlogLayout
-  title={t("privacy.title")}
-  heroTitle={t("privacy.title")}
-  heroSubtitle={t("privacy.updated")}
->
-  <section class="card page-card">
-    <div class="prose">
-      <p>{t("privacy.intro")}</p>
-      <h2>{t("privacy.collectTitle")}</h2>
-      <p>{t("privacy.collectBody")}</p>
-      <h2>{t("privacy.cookiesTitle")}</h2>
-      <p>{t("privacy.cookiesBody")}</p>
-      <h2>{t("privacy.thirdPartyTitle")}</h2>
-      <p>{t("privacy.thirdPartyBody")}</p>
-      <h2>{t("privacy.rightsTitle")}</h2>
-      <p>{t("privacy.rightsBody")}</p>
-      <h2>{t("privacy.contactTitle")}</h2>
-      <p>{t("privacy.contactBody")}</p>
-      <h2>{t("privacy.changesTitle")}</h2>
-      <p>{t("privacy.changesBody")}</p>
+<Layout title={`隐私政策 | ${seoConfig.title}`}>
+  <TwoColumnLayout>
+    <Cover slot="cover" title="隐私政策" />
+    <HomeSider slot="sider" />
+    <div
+      class={`shadow-box bg-gradient-start mx-0 flex min-w-0 w-full max-w-full flex-col gap-8 overflow-x-clip ${CONTENT_PADDING.standard}`}
+    >
+      <div class="prose dark:prose-invert" data-pagefind-body>
+        <p>最后更新：2026 年 11 月 13 日</p>
+        <p>华人智能家居指南重视访问者的隐私。本政策说明本站收集哪些信息、如何使用这些信息，以及您有哪些选择。请注意，本站不要求注册账号，也不会主动收集您的姓名、邮箱等个人身份信息。</p>
+        <h2>我们收集的信息</h2>
+        <p>本站不设注册和登录，不会收集您的姓名、邮箱、电话等个人身份信息。服务器在提供服务时可能会记录常规的技术信息，例如访问时间、访问页面、浏览器类型和 IP 地址，仅用于保障网站正常运行和排查故障，不会用于识别个人身份。</p>
+        <h2>Cookie 与本地存储</h2>
+        <p>本站使用浏览器本地存储保存您的偏好设置，例如深色 / 浅色主题，仅保存在您自己的浏览器中，不会上传到服务器。本站目前不使用广告追踪 Cookie；如果未来接入广告服务，本政策会相应更新。</p>
+        <h2>第三方服务与外部链接</h2>
+        <p>本站文章可能包含指向第三方网站的链接，点击后将适用对方网站的隐私政策，本站不对其内容负责。如果未来接入第三方统计或广告服务（如 Google AdSense），相关服务可能会使用 Cookie 来提供统计或展示广告，详情请以届时更新的本政策为准。</p>
+        <h2>您的权利</h2>
+        <p>您可以随时通过浏览器设置清除本站保存在本地的数据和 Cookie，也可以直接停止访问本站。由于本站不收集个人身份信息，因此没有可供查询、更正或删除的个人账号资料。</p>
+        <h2>联系我们</h2>
+        <p>如果您对本政策有任何疑问，可以通过本站页脚的 GitHub 链接与我们联系。</p>
+        <h2>政策更新</h2>
+        <p>本政策可能随网站服务的调整而更新，更新后的版本会在本页面发布，并以页面顶部的“最后更新”日期为准。</p>
+      </div>
     </div>
-  </section>
-</BlogLayout>
+  </TwoColumnLayout>
+</Layout>
