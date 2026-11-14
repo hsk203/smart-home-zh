@@ -11,20 +11,20 @@
 # Site Basic Information
 # =============================================================================
 site:
-  title: 华人智能家居指南
+  title: 智能家居指南
   alternate: Smart Home Guide
-  subtitle: 海外华人智能家居跨区指南
-  name: 华人智能家居指南
-  description: 海外华人智能家居跨区指南：Home Assistant、Aqara/米家、智能开关与桌面改造
+  subtitle: 智能家居跨区指南
+  name: 智能家居指南
+  description: 智能家居跨区指南：Home Assistant、Aqara/米家、智能开关与桌面改造
   avatar: /images/avatar.svg
   showLogo: false # 是否显示图形 Logo；默认显示站点名称，启用后可替换 src/assets/svg/logo.svg
-  author: 华人智能家居指南
+  author: 智能家居指南
   url: https://smarthome.aitech8.com
   defaultOgImage: /images/hero.webp
   startYear: 2026
   timezone: Asia/Shanghai # 时区配置 (IANA 格式)，用于日期显示和处理
   keywords: # SEO 关键词 (全局)
-    - 华人智能家居
+    - 智能家居
     - 跨区智能家居
     - Home Assistant 教程
     - 人体工学椅推荐
@@ -65,7 +65,7 @@ featuredCategories:
   - link: cross-region
     label: 跨区折腾
     image: /img/cover/2.webp
-    description: 海外华人智能家居跨区折腾：Home Assistant、Aqara / 米家锁区与智能开关
+    description: 智能家居跨区折腾：Home Assistant、Aqara / 米家锁区与智能开关
   - link: getting-started
     label: 入门指南
     image: /img/cover/3.webp

@@ -1,0 +1,35 @@
+---
+import HomeSider from '@components/layout/HomeSider.astro';
+import Cover from '@components/ui/cover/Cover.astro';
+import { CONTENT_PADDING } from '@constants/layout';
+import { seoConfig } from '@constants/site-config';
+import Layout from '@layouts/Layout.astro';
+import TwoColumnLayout from '@layouts/TwoColumnLayout.astro';
+---
+
+<Layout title={`隱私政策 | ${seoConfig.title}`}>
+  <TwoColumnLayout>
+    <Cover slot="cover" title="隱私政策" />
+    <HomeSider slot="sider" />
+    <div
+      class={`shadow-box bg-gradient-start mx-0 flex min-w-0 w-full max-w-full flex-col gap-8 overflow-x-clip ${CONTENT_PADDING.standard}`}
+    >
+      <div class="prose dark:prose-invert" data-pagefind-body>
+        <p>最後更新：2026 年 11 月 13 日</p>
+        <p>智能家居指南重視訪問者的隱私。本政策說明本站收集哪些信息、如何使用這些信息，以及您有哪些選擇。請注意，本站不要求註冊賬號，也不會主動收集您的姓名、郵箱等個人身份信息。</p>
+        <h2>我們收集的信息</h2>
+        <p>本站不設註冊和登錄，不會收集您的姓名、郵箱、電話等個人身份信息。服務器在提供服務時可能會記錄常規的技術信息，例如訪問時間、訪問頁面、瀏覽器類型和 IP 地址，僅用於保障網站正常運行和排查故障，不會用於識別個人身份。</p>
+        <h2>Cookie 與本地存儲</h2>
+        <p>本站使用瀏覽器本地存儲保存您的偏好設置，例如深色 / 淺色主題，僅保存在您自己的瀏覽器中，不會上傳到服務器。本站目前不使用廣告追蹤 Cookie；如果未來接入廣告服務，本政策會相應更新。</p>
+        <h2>第三方服務與外部鏈接</h2>
+        <p>本站文章可能包含指向第三方網站的鏈接，點擊後將適用對方網站的隱私政策，本站不對其內容負責。如果未來接入第三方統計或廣告服務（如 Google AdSense），相關服務可能會使用 Cookie 來提供統計或展示廣告，詳情請以屆時更新的本政策為準。</p>
+        <h2>您的權利</h2>
+        <p>您可以隨時通過瀏覽器設置清除本站保存在本地的數據和 Cookie，也可以直接停止訪問本站。由於本站不收集個人身份信息，因此沒有可供查詢、更正或刪除的個人賬號資料。</p>
+        <h2>聯繫我們</h2>
+        <p>如果您對本政策有任何疑問，可以通過本站頁腳的 GitHub 鏈接與我們聯繫。</p>
+        <h2>政策更新</h2>
+        <p>本政策可能隨網站服務的調整而更新，更新後的版本會在本頁面發佈，並以頁面頂部的“最後更新”日期為準。</p>
+      </div>
+    </div>
+  </TwoColumnLayout>
+</Layout>

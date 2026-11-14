@@ -1,0 +1,555 @@
+# yaml-language-server: $schema=https://json-schema.org/draft-07/schema
+# =============================================================================
+# Site Configuration
+# =============================================================================
+# This file contains all site-specific configurations.
+# Modify this file to customize your blog.
+# After changes, rebuild the site: docker compose up -d --build
+# =============================================================================
+
+# =============================================================================
+# Site Basic Information
+# =============================================================================
+site:
+  title: 智能家居指南
+  alternate: Smart Home Guide
+  subtitle: 智能家居跨區指南
+  name: 智能家居指南
+  description: 智能家居跨區指南：Home Assistant、Aqara/米家、智能開關與桌面改造
+  avatar: /images/avatar.svg
+  showLogo: false # 是否顯示圖形 Logo；默認顯示站點名稱，啟用後可替換 src/assets/svg/logo.svg
+  author: 智能家居指南
+  url: https://smarthome-hant.aitech8.com
+  defaultOgImage: /images/hero.webp
+  startYear: 2026
+  timezone: Asia/Shanghai # 時區配置 (IANA 格式)，用於日期顯示和處理
+  keywords: # SEO 關鍵詞 (全局)
+    - 智能家居
+    - 跨區智能家居
+    - Home Assistant 教程
+    - 人體工學椅推薦
+    - 電動升降桌推薦
+    - 智能開關零火線
+    - Aqara 海外版
+    - 米家鎖區
+    - 桌面改造
+  # breadcrumbHome: 首頁  # 麵包屑導航中首頁的顯示名稱（默認: '首頁'）
+  # icp:                         # ICP 備案號（可自定義鏈接）
+  #   text: "粵ICP備xxxxxxxxxx號"
+  #   link: "https://beian.miit.gov.cn/"
+  # Enable slug transliteration (converts CJK characters to pinyin/romaji)
+  # Note: enabling this will break existing CJK URLs. Run `pnpm save-slugs` first to save old slugs into frontmatter.link
+  # enableSlugTransliteration: true
+
+# =============================================================================
+# Internationalization (i18n)
+# 國際化配置 - 控制多語言支持
+# =============================================================================
+# defaultLocale: 默認語言代碼（URL 不帶前綴）
+# locales: 支持的語言列表
+#   - code: 語言代碼（BCP 47 短格式，如 'zh', 'en', 'ja'）
+#   - label: 語言顯示名稱（如 '中文', 'English'）
+# -----------------------------------------------------------------------------
+i18n:
+  defaultLocale: zh
+  locales:
+    - code: zh
+      label: 中文
+categoryMap:
+  跨區折騰: cross-region
+  桌面改造: desk-setup
+  升降桌: standing-desks
+  人體工學椅: ergonomic-chairs
+  入門指南: getting-started
+featuredCategories:
+  - link: cross-region
+    label: 跨區折騰
+    image: /img/cover/2.webp
+    description: 智能家居跨區折騰：Home Assistant、Aqara / 米家鎖區與智能開關
+  - link: getting-started
+    label: 入門指南
+    image: /img/cover/3.webp
+    description: 從零開始，搭一套在海外也能用的智能家居
+  - link: standing-desks
+    label: 升降桌
+    image: /img/cover/1.webp
+    description: 電動升降桌選購與小空間佈置
+  - link: ergonomic-chairs
+    label: 人體工學椅
+    image: /img/cover/11.webp
+    description: 人體工學椅選購與坐姿指南
+  - link: desk-setup
+    label: 桌面改造
+    image: /img/cover/4.webp
+    description: 桌面改造與線材收納
+social:
+  github:
+    url: https://github.com/hsk203/smart-home-zh
+    icon: ri:github-fill # Remix Icon 的 GitHub 圖標
+    color: '#191717' # (可選) 圖標顏色
+  rss:
+    url: /rss.xml # 站內 RSS 訂閱地址
+    icon: ri:rss-line
+    color: '#ff6600'
+  # -------------------------------------------------------------------------
+  # 以下是更多可選的社交平臺配置示例，取消註釋並修改即可啟用：
+  # -------------------------------------------------------------------------
+  # twitter:
+  #   url: https://x.com/your-handle
+  #   icon: ri:twitter-fill
+  #   color: '#4b9ae4'
+  # bilibili:
+  #   url: https://space.bilibili.com/your-id
+  #   icon: ri:bilibili-fill
+  #   color: '#da708a'
+  # zhihu:
+  #   url: https://www.zhihu.com/people/your-id
+  #   icon: ri:zhihu-fill
+  #   color: '#1e88e5'
+  # music:
+  #   url: https://music.163.com/#/user/home?id=your-id
+  #   icon: ri:netease-cloud-music-line
+  #   color: '#e60026'
+
+# =============================================================================
+# Friends Links
+# 友情鏈接頁面配置 - 展示友鏈列表和申請說明
+# =============================================================================
+# intro: 頁面介紹文字配置
+#   title: 頁面標題
+#   subtitle: 頁面副標題
+#   applyTitle: 申請區塊標題
+#   applyDesc: 申請說明文字
+#   exampleYaml: 申請格式示例（YAML 格式）
+# data: 友鏈列表數組
+#   - site: 站點名稱
+#   - url: 站點地址
+#   - owner: 站長暱稱
+#   - desc: 站點描述/簡介
+#   - image: 頭像圖片 URL
+#   - color: (可選) 主題色，十六進制格式；顯示在頭像外圈和懸停效果上
+#   - group: (可選) 所屬分組的 id；未填寫或找不到分組時歸入「未分組」
+# groups: (可選) 友鏈分組，按配置順序展示；不配置則為平鋪列表
+#   - id: 分組標識，供友鏈的 group 引用（唯一）
+#   - title: 分組標題
+#   - description: (可選) 分組說明
+# -----------------------------------------------------------------------------
+announcements:
+  # - id: welcome-2026 # 唯一標識符
+  #   title: 2026 年新年快樂! # 公告標題
+  #   content: 新年快樂! 感謝大家一直以來的支持~ # 公告內容
+  #   type: success # 類型: info/success/warning/error
+  #   priority: 10 # 優先級，數值越大越靠前
+  #   color: '#FF6B6B' # (可選) 自定義顏色
+  #   publishDate: '2026-01-01' # 發佈日期
+  #   startDate: '2025-12-31T00:00:00+08:00' # (可選) 開始顯示時間
+  #   endDate: '2026-01-15T23:59:59+08:00' # (可選) 結束顯示時間
+  #   link: # (可選) 相關鏈接
+  #     url: https://example.com
+  #     text: 瞭解更多
+  #     external: true # 新窗口打開
+  # - id: maintenance-notice
+  #   title: 系統維護通知
+  #   content: 計劃於本週末進行系統維護，屆時可能短暫無法訪問。
+  #   type: warning
+  #   priority: 8
+  #   publishDate: '2025-12-28'
+  # - id: site-update
+  #   title: 站點更新公告
+  #   content: 公告系統已升級，現支持多條公告同時顯示！
+  #   type: info
+  #   priority: 5
+  #   color: '#6366F1'
+  #   publishDate: '2025-12-25'
+
+
+# =============================================================================
+# Default Cover List
+# 默認封面列表 - 文章沒有指定封面時將隨機從列表中選擇一張作為封面
+# 不設置則使用內置的 21 張默認封面 (/img/cover/1~21.webp)
+# =============================================================================
+# defaultCoverList:
+#   - /img/cover/1.webp
+#   - https://example.com/custom-cover.webp
+
+
+# =============================================================================
+# Content Processing Options
+# 內容處理選項 - 控制文章渲染和交互行為
+# =============================================================================
+# 字段說明：
+#   addBlankTarget: 外部鏈接在新窗口打開
+#   smoothScroll: 啟用平滑滾動動畫
+#   addHeadingLevel: 自動為標題添加層級錨點
+#   enhanceCodeBlock: 增強代碼塊樣式（行號、語言標籤等）
+#   enableCodeCopy: 顯示代碼塊複製按鈕
+#   enableCodeFullscreen: 顯示代碼塊全屏按鈕
+#   enableLinkEmbed: 啟用鏈接卡片預覽（解析 OG 信息）
+#   enableTweetEmbed: 啟用推文嵌入展示
+#   enableOGPreview: 啟用 Open Graph 預覽卡片
+#   previewCacheTime: 預覽信息緩存時間（天）
+#   lazyLoadEmbeds: 延遲加載嵌入內容（提升性能）
+#   postCardImagePosition: 文章卡片封面圖位置 (alternating/left/right)
+# -----------------------------------------------------------------------------
+content:
+  addBlankTarget: true # 外部鏈接新窗口打開
+  smoothScroll: true # 平滑滾動
+  addHeadingLevel: true # 標題錨點
+  enhanceCodeBlock: true # 增強代碼塊
+  enableCodeCopy: true # 代碼複製按鈕
+  enableCodeFullscreen: true # 代碼全屏按鈕
+  enableLinkEmbed: true # 鏈接卡片預覽
+  enableCodePenEmbed: true # CodePen 嵌入
+  enableTweetEmbed: true # 推文嵌入
+  enableOGPreview: true # OG 預覽卡片
+  previewCacheTime: 30 # 預覽緩存時間(天)
+  lazyLoadEmbeds: true # 延遲加載嵌入
+  postCardImagePosition: alternating # 文章卡片封面圖位置在首頁的顯示控制 alternating 默認交替顯示 left 封面圖始終在左側 right 封面圖始終在右側
+  # Shoka 兼容功能（默認全部啟用，設為 false 可關閉）
+  enableShokaContainers: true   # :::提醒塊 ;;;標籤卡 +++摺疊塊
+  enableShokaAttrs: true        # [text]{.class} 屬性語法
+  enableShokaEffects: true      # ++下劃線++ ==高亮== ~下標~ ^上標^
+  enableShokaSpoiler: true      # !!隱藏文字!!
+  enableShokaRuby: true         # {文字^注音} 注音標註
+  enableShokaHexoTags: true     # {% links %} {% media %} Hexo標籤
+  enableMath: true              # $數學公式$ KaTeX渲染
+  enableCodeMeta: true          # 代碼塊增強 (title, mark, command)
+  enableQuiz: true              # 練習題交互功能
+  enableEncryptedBlock: true    # :::encrypted{password="..."} 加密內容塊
+
+# =============================================================================
+# Motion
+# 動效配置 - 站點默認動效強度與櫻花特效
+# =============================================================================
+# 字段說明：
+#   level: 訪客未手動選擇時的默認動效強度，訪客可在右下角「設置 → 通用 → 動效強度」中覆蓋
+#     lively  靈動：頁面入場編排、滾動浮現（含正文）、共享元素過渡、櫻花特效
+#     subtle  剋制：保留入場與過渡，正文不做滾動浮現，不播放櫻花特效
+#     reduced 減弱：關閉裝飾性動效，只保留必要的交互反饋
+#   heroPetals: 頭圖櫻花飄落（僅 lively 檔生效）
+#   clickBurst: 點擊按鈕、鏈接等可交互元素時迸出花瓣（僅 lively 檔生效）
+# 系統開啟「減少動態效果」(prefers-reduced-motion) 時，始終按 reduced 處理
+# -----------------------------------------------------------------------------
+motion:
+  level: lively
+  heroPetals: true
+  clickBurst: true
+
+# =============================================================================
+# Moments Archive (optional)
+# 碎碎念動態歸檔 - 默認關閉；啟用時還需配置 KOHARU_SUITE_URL 和 dynamic Docker target
+# =============================================================================
+moments:
+  enabled: false
+  path: moments # 支持嵌套路徑，例如 life/moments；不要添加首尾斜線
+  title: 碎碎念
+  description: 記錄頻道中的日常消息
+  # ogImage: /img/moments-og.png
+  # pathAliases:
+  #   - telegram
+  # channels: # 可省略；省略時按 suite 返回結果展示所有公開頻道
+  #   - id: 550e8400-e29b-41d4-a716-446655440000
+  #     slug: daily
+  #     title: 日常
+  #     primary: true
+  #     hidden: false
+  #     ogImage: /img/daily-og.png
+  #     aliases:
+  #       - old-daily
+
+# =============================================================================
+# Writing Room
+# 寫作室 - 默認關閉，開啟後生成 /editor/ 和 /editor/preview/，並顯示已有導航入口
+# 使用本地 CMS 編輯文章時也需要開啟；修改後重啟開發服務器或重新構建
+# =============================================================================
+editor:
+  enabled: false
+
+# =============================================================================
+# Colophon (落款)
+# 文章落款 - 為文章標註創作方式、閱讀提示等，字典在這裡定義，文章 frontmatter 引用
+# =============================================================================
+# 用法（文章 frontmatter）：
+#   colophon: [ai-cowrite, spoiler]
+#   colophon:
+#     - ai-cowrite
+#     - { id: spoiler, note: 含《我推的孩子》第二季劇透 }   # note：本篇自己的補充說明
+#     - { icon: fa6-solid:cat, label: 貓貓審閱過 }          # 一次性標記，不進字典
+# 字段說明：
+#   groups.<id>.label: 分組名稱（顯示在文末落款）
+#   groups.<id>.exclusive: 是否互斥，互斥組一篇文章只能選一個（默認 false）
+#   groups.<id>.placement / marks.<id>.placement: 顯示位置，可多選（標記優先，其次分組，默認 [meta, seal]）
+#     meta   封面信息行（字數、閱讀時長旁）
+#     banner 正文前的提示條
+#     seal   文末落款
+#     card   文章列表卡片上的小圖標
+#   marks.<id>.icon: Iconify 圖標，限 ri / fa6-solid / fa6-regular / gg 四套（見 src/lib/config/icon-sets.ts）
+#   marks.<id>.tone: muted（默認）| accent | warn
+#   defaults: 默認標記，文章沒有該組的標記時自動補上（每組最多一個）；文章寫 colophon: [] 可不顯示任何標記
+# 多語言：在 config/i18n-content.yaml 的 <locale>.colophon 下覆蓋 groups / marks 文案
+# 刪除整個 colophon 段落即可關閉此功能
+# -----------------------------------------------------------------------------
+colophon:
+  enabled: true
+  defaults: [handwritten] # 沒寫執筆的文章默認顯示「手寫」
+  groups:
+    authorship:
+      label: 執筆
+      exclusive: true
+      placement: [meta, seal, card]
+    notice:
+      label: 閱讀提示
+      placement: [meta, banner]
+    # ai:
+    #   label: AI 參與
+    #   placement: [seal]
+    # art:
+    #   label: 圖像
+    #   placement: [seal]
+    # status:
+    #   label: 文章狀態
+    #   placement: [meta, seal]
+    # mood:
+    #   label: 寫作時
+    #   placement: [seal]
+  marks:
+    handwritten:
+      group: authorship
+      icon: ri:quill-pen-line
+      label: 手寫
+      description: 每個字都是我自己敲的。
+    ai-cowrite:
+      group: authorship
+      icon: ri:sparkling-2-line
+      label: 與 AI 合寫
+      description: 我主筆，AI 幫我理思路、換說法。
+    ai-lead:
+      group: authorship
+      icon: ri:sparkling-2-fill
+      label: AI 主筆
+      description: 正文主要由 AI 起草，我負責挑選和改寫。
+    spoiler:
+      group: notice
+      icon: ri:eye-off-line
+      label: 含劇透
+      description: 涉及作品後續劇情，還沒看完的話可以先收藏。
+      tone: warn
+    outdated:
+      group: notice
+      icon: ri:hourglass-line
+      label: 可能已過時
+      description: 寫得比較早，文中的版本和做法可能已經變了。
+      tone: warn
+    # ai-idea: { group: ai, icon: ri:lightbulb-flash-line, label: 構思, description: 和 AI 聊過選題與結構。 }
+    # ai-polish: { group: ai, icon: ri:magic-line, label: 潤色, description: AI 幫忙改過措辭和錯字。 }
+    # ai-code: { group: ai, icon: ri:code-s-slash-line, label: 代碼, description: 示例代碼有 AI 參與編寫。 }
+    # ai-translate: { group: ai, icon: ri:translate-2, label: 翻譯, description: 譯文由 AI 初譯，我校對過。 }
+    # self-drawn: { group: art, icon: ri:brush-line, label: 自己畫的, description: 文中插圖是我自己畫的。 }
+    # photo: { group: art, icon: ri:camera-3-line, label: 自己拍的, description: 照片都是我自己拍的。 }
+    # ai-art: { group: art, icon: ri:image-ai-line, label: AI 配圖, description: 文中有 AI 生成或協作繪製的圖。 }
+    # ongoing: { group: status, icon: ri:refresh-line, label: 持續更新, description: 這篇會不定期補充。 }
+    # wip: { group: status, icon: ri:seedling-line, label: 未完待續, description: 坑還沒填完，後面會接著寫。 }
+    # late-night: { group: mood, icon: ri:moon-clear-line, label: 深夜寫的 }
+    # one-sitting: { group: mood, icon: ri:cup-line, label: 一口氣寫完 }
+
+# =============================================================================
+# Post Actions
+# 文章操作 - 麵包屑右側的「複製 Markdown」按鈕組
+# =============================================================================
+# 字段說明：
+#   copyMarkdown: 複製全文 Markdown（含 frontmatter）
+#   downloadMarkdown: 下載 .md 文件
+#   openInEditor: 在寫作室打開，需要 editor.enabled
+#     off      不顯示
+#     dev      僅本地開發服務器顯示
+#     everyone 所有訪客可見，訪客打開的是一份瀏覽器草稿副本，不會改動博客
+# 加密文章（password）不提供原文，也不顯示這些按鈕
+# -----------------------------------------------------------------------------
+postActions:
+  copyMarkdown: false
+  downloadMarkdown: false
+  openInEditor: off
+
+# =============================================================================
+# Navigation Routes
+# 導航菜單配置 - 定義頂部導航欄的菜單項
+# =============================================================================
+# 字段說明：
+#   name: 菜單項顯示名稱
+#   path: 鏈接路徑（有 children 時可省略，點擊展開子菜單）
+#   icon: Iconify 圖標標識，格式 "集合:圖標名"
+#   children: (可選) 子菜單列表，結構與父級相同
+# -----------------------------------------------------------------------------
+# 圖標參考：
+#   - Font Awesome 6: https://icon-sets.iconify.design/fa6-solid/
+#   - Remix Icon: https://icon-sets.iconify.design/ri/
+# -----------------------------------------------------------------------------
+navigation:
+  - name: 首頁
+    nameKey: nav.home
+    path: /
+    icon: ri:home-heart-fill
+  - name: 文章
+    nameKey: nav.posts
+    path: /posts
+    icon: ri:quill-pen-ai-fill
+  - name: 關於
+    nameKey: nav.about
+    path: /about
+    icon: fa6-regular:circle-user
+comment:
+  provider: none  # 'remark42' | 'giscus' | 'waline' | 'twikoo' | 'none'
+  # remark42:
+  #   host: https://comment.example.com/
+  #   siteId: your-site-id
+  # giscus:
+  #   repo: username/repo              # GitHub 倉庫名 (owner/repo 格式)
+  #   repoId: R_kgDOxxxxxx             # 倉庫 ID (從 giscus.app 獲取)
+  #   category: Announcements          # Discussion 分類名稱
+  #   categoryId: DIC_kwDOxxxxxx       # 分類 ID (從 giscus.app 獲取)
+  #   mapping: pathname                # 映射方式
+  #   reactionsEnabled: '1'            # 啟用 reactions ('0' | '1')
+  #   emitMetadata: '0'                # 發送元數據 ('0' | '1')
+  #   inputPosition: top               # 輸入框位置 ('top' | 'bottom')
+  #   lang: zh-CN                      # 語言
+
+  # waline:
+  #   serverURL: https://your-waline.vercel.app  # Waline 服務端地址 (必填)
+  #   lang: zh-CN                      # 語言 (默認: 'zh-CN')
+  #   dark: html.dark                  # 暗黑模式 (默認: 'html.dark')
+  #                                    # 可選: true (自適應) | false (禁用) | CSS選擇器字符串
+  #   meta:                            # 評論者信息字段 (默認: ['nick', 'mail', 'link'])
+  #     - nick
+  #     - mail
+  #     - link
+  #   requiredMeta:                    # 必填字段 (默認: [])
+  #     - nick
+  #   login: enable                    # 登錄模式 ('enable' | 'disable' | 'force', 默認: 'enable')
+  #   wordLimit: 0                     # 評論字數限制 (0 = 無限制, 默認: 0)
+  #                                    # 可選: 單個數字 | [min, max] 數組
+  #   pageSize: 10                     # 每頁評論數 (默認: 10)
+  #   imageUploader: false             # 圖片上傳功能 (默認: false)
+  #   highlighter: true                # 代碼高亮 (默認: true)
+  #   texRenderer: false               # LaTeX 渲染 (默認: false)
+  #   search: false                    # 搜索功能 (默認: false)
+  #   reaction: false                  # 文章反應功能 (默認: false)
+  #                                    # 可選: true | false | 字符串數組 (自定義反應圖標)
+  #   emoji: true                      # 表情包配置 (默認: ['//unpkg.com/@waline/emojis@1.2.0/weibo'])
+  #                                    # 可選: true | false | 字符串/對象數組
+  #                                    # 預設表情包: '//unpkg.com/@waline/emojis@1.2.0/weibo'
+  #                                    #           '//unpkg.com/@waline/emojis@1.2.0/alus'
+  #                                    #           '//unpkg.com/@waline/emojis@1.2.0/bilibili'
+  #                                    #           '//unpkg.com/@waline/emojis@1.2.0/qq'
+  #                                    #           '//unpkg.com/@waline/emojis@1.2.0/tieba'
+  #                                    #           '//unpkg.com/@waline/emojis@1.2.0/tw-emoji'
+  #   commentSorting: latest           # 評論排序 ('latest' | 'oldest' | 'hottest', 默認: 'latest')
+  #   noCopyright: false               # 隱藏頁腳版權信息 (默認: false)
+  #   comment: true                    # 評論數統計 (默認: true)
+  #   pageview: true                   # 頁面訪問量統計 (默認: true)
+  #   # recaptchaV3Key: ''             # reCAPTCHA v3 Key (可選)
+  #   # turnstileKey: ''               # Cloudflare Turnstile Key (可選)
+  #   # locale:                        # 自定義語言顯示 (可選)
+  #   #   placeholder: '請留言...'      # 自定義輸入框佔位文本
+  twikoo:
+    envId: https://your-twikoo.vercel.app  # Twikoo 環境 ID (騰訊雲) 或 Vercel 環境地址 (必填)
+    # region: ap-shanghai              # 環境地域，默認為 ap-shanghai
+    # path: location.pathname          # 用於區分不同文章的自定義 js 路徑
+    # lang: zh-CN                     # 語言 (默認: 'zh-CN')
+
+# =============================================================================
+# Analytics (Umami)
+# =============================================================================
+# id: Umami 網站 ID
+# endpoint: Umami 服務器地址
+# enabled: 是否啟用統計
+# statistics_display: 統計信息顯示配置
+#   token: Umami 分享鏈接令牌（只讀，可安全暴露到客戶端）
+#   article_page_views: 在文章詳情頁顯示訪問量
+#   footer_site_stats: 在頁腳 Site Stats 中顯示全站訪問量
+# -----------------------------------------------------------------------------
+analytics:
+  umami:
+    enabled: false
+    id: your-umami-id
+    endpoint: https://stats.example.com
+    # statistics_display:
+    #   token: your-umami-share-token
+    #   article_page_views: true
+    #   footer_site_stats: true
+
+# =============================================================================
+# SEO Configuration
+# =============================================================================
+# https://github.com/alextim/astro-lib/tree/main/packages/astro-robots-txt#readme
+# robots: robots.txt 配置 (由 astro-robots-txt 自動生成)
+#   policy: 爬蟲策略數組（可選，默認允許所有）
+#     - userAgent: 爬蟲名稱，'*' 表示所有
+#       allow: 允許路徑（可為字符串或數組）
+#       disallow: 禁止路徑（可為字符串或數組）
+#   host: 是否添加 Host 指令（可選，適用於 Yandex）
+# -----------------------------------------------------------------------------
+seo:
+  robots:
+    # policy:                          # 爬蟲策略（可選，取消註釋並配置）
+    #   - userAgent: '*'
+    #     allow: '/'
+    #     disallow:
+    #       - '/api/'
+    # host: true                       # 可選：添加 Host 指令（Yandex）
+
+# =============================================================================
+# Christmas/Seasonal Features
+# =============================================================================
+bgm:
+  enabled: false
+  # metingApi: https://163.hyc.moe/  # Meting API 地址，默認為 https://163.hyc.moe/，推薦自部署
+  audio:
+    - title: 最愛山山
+      list:
+        - https://music.163.com/playlist?id=8676645748
+    - title: Love Vocaloid
+      list:
+        - https://music.163.com/playlist?id=8882890045
+
+christmas:
+  enabled: false # 總開關
+  # features: # 各功能獨立開關
+  #   snowfall: true # 飄雪效果
+  #   christmasColorScheme: true # 聖誕配色
+  #   christmasCoverDecoration: true # 封面裝飾
+  #   christmasHat: true # 頭像聖誕帽
+  #   readingTimeSnow: true # 閱讀時間雪花圖標
+  # snowfall: # 飄雪參數配置
+  #   speed: 0.5 # 下落速度 (0-1)
+  #   intensity: 0.7 # 雪花密度 (0-1)
+  #   mobileIntensity: 0.4 # 移動端密度（建議較低）
+  #   maxLayers: 6 # 最大層數
+  #   maxIterations: 8 # 最大迭代次數
+  #   mobileMaxLayers: 4 # 移動端最大層數
+  #   mobileMaxIterations: 6 # 移動端最大迭代次數
+
+# =============================================================================
+# Bangumi (Media Tracking)
+# 追番頁面 - 註釋掉整個 bangumi 段即可關閉（頁面 + 導航自動隱藏）
+# =============================================================================
+# 字段說明：
+#   userId: Bangumi 用戶名或數字 ID（必填）
+#   label: 導航顯示名稱（可選，默認：追番）
+#   icon: 導航圖標，Iconify 格式（可選，默認：ri:bilibili-fill）
+# -----------------------------------------------------------------------------
+dev:
+  localProjectPath: '/Users/yourname/path/to/astro-koharu' # 請修改為你的項目絕對路徑
+  contentRelativePath: 'src/content/blog'
+  editors:
+    - id: vscode
+      name: VS Code
+      icon: devicon-plain:vscode
+      urlTemplate: 'vscode://file/{path}'
+    - id: cursor
+      name: Cursor
+      icon: simple-icons:cursor
+      urlTemplate: 'cursor://file/{path}'
+    - id: zed
+      name: Zed
+      icon: simple-icons:zedindustries
+      urlTemplate: 'zed://file/{path}'
